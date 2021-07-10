@@ -115,3 +115,28 @@ function selectDoor(ourDoor) {
     }
     */
 }
+
+function detectMobile() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+
+    mobileDevice = toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+
+    if (mobileDevice) {
+        mainTable = document.getElementById('mainTable');
+        mainTable.setAttribute('width','100%');
+        mainTable.setAttribute('padding','0px 0px');    
+        montyHallRow = document.getElementById('montyHallRow');
+        montyHallRow.setAttribute('padding','0px 0px');    
+    } 
+}
+
