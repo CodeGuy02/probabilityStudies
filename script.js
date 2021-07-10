@@ -138,7 +138,7 @@ function detectMobile() {
         montyHallRow = document.getElementById('montyHallRow');
         montyHallRow.setAttribute('padding','0px 0px');    
         alert('Mobile device detected! ');
-    } 
+    } else { alert('Desktop environment detected!');}
 
     console.log('Yes, we are loading...');
     console.log('Your user-agent is :' + navigator.userAgent);
