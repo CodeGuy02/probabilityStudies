@@ -137,6 +137,10 @@ function detectMobile() {
         mainTable.setAttribute('padding','0px 0px');    
         montyHallRow = document.getElementById('montyHallRow');
         montyHallRow.setAttribute('padding','0px 0px');    
+        alert('Mobile device detected! ');
     } 
+
+    console.log('Yes, we are loading...');
+    console.log('Your user-agent is :' + navigator.userAgent);
 }
 
