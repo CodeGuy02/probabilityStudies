@@ -1,3 +1,8 @@
+body {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .table {
     display: table;
     width: 90%;
@@ -10,7 +15,7 @@
 
 .mobileTable {
   width: 100%;
-  padding: 5px 5px;
+  padding: 0px 0px;
   margin-left: auto;
   margin-right: auto;
   border-spacing: 2px 40px;
@@ -18,7 +23,7 @@
 
 .row {
     display: table-row;
-    padding: 20px 20px;
+    /*padding: 0px 0px;*/
     border: 2px solid;
 
 }
@@ -98,6 +103,7 @@ h1 {
   .staticRow {
       display: table-row;
       border: 2px solid black;
+      margin-left: 0px;
   }
 
   .staticCell {

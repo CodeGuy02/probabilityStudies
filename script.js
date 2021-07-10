@@ -134,8 +134,7 @@ function detectMobile() {
     if (mobileDevice) {
         mainTable = document.getElementById('mainTable');
         mainTable.setAttribute('class', 'mobileTable');
-        alert('Mobile device detected! ');
-    } else { alert('Desktop environment detected!');}
+    } 
 
     console.log('Yes, we are loading...');
     console.log('Your user-agent is :' + navigator.userAgent);
