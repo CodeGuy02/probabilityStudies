@@ -1,6 +1,6 @@
 .table {
     display: table;
-    width: 80%;
+    width: 90%;
     margin-right: auto;
     margin-left: auto;
     padding: 5px 5px;
@@ -26,6 +26,8 @@
     padding: 20px 20px;
     /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
     box-shadow: 5px 5px 10px black;
+    transition: 100ms;
+
 }
 
 .cell:hover {
@@ -33,11 +35,14 @@
     box-shadow: 5px 5px 10px skyblue;
     border: 3px solid white;
     /* place-content:url('penguin_cheer.gif'); */
-    place-content:montyHall('penguin_cheer.gif');
+    /* place-content:montyHall('penguin_cheer.gif'); */
+}
+
+.cell:enabled {
+    transform: translateX(2rem);
 }
 
 .penguinImage {
-    align-self: right;
     float: right;
     vertical-align: middle;
     content:url('penguin_cheer.gif');
@@ -65,3 +70,88 @@ h1 {
     text-shadow: 1px 1px 5px black;
     font-size: 1rem;
 }
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  #montyHallplayArea {
+    border: 2px solid black;
+    border-spacing: 10px;    /* border betweeen rows */
+  }
+
+  .staticRow {
+      display: table-row;
+      border: 2px solid black;
+  }
+
+  .staticCell {
+      display: table-cell;
+      border: 2px solid black;
+  }
+
+  .simplePenguin {
+    content:url('penguin_cheer.gif');
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .greenDoor {
+    /*  
+    content:url('green_door_01.png');
+    width: 4rem;
+    height: 5rem;
+    */
+    border-radius: 2px;
+    background-image: radial-gradient(skyblue,green, darkgreen);
+    box-shadow: 5px 5px 10px black;
+    width: 4rem;
+    height: 6rem;
+    transition: 200ms;
+  }
+
+  .greenDoor:hover {
+    /*transform: rotateX(40deg);*/
+    transform: translateX(-0.3rem);
+  }
+
+  .blueDoor {
+      /*
+      content:url('door_02.png');
+      width: 4rem;
+      height: 5rem;
+      */
+    border-radius: 2px; 
+    background-image: radial-gradient(skyblue,rgb(72, 75, 252),navy);
+    box-shadow: 5px 5px 10px black;
+    width: 4rem;
+    height: 6rem;
+    transition: 200ms;
+  }
+
+  .blueDoor:hover {
+    transform: translateX(-0.3rem);
+  }
+  
+  .selectedDoor {
+    width: 4rem;
+    height: 6rem;
+    border: 2px solid whitesmoke;
+    border-radius: 2px;
+    box-shadow: 5px whitesmoke;
+    background-image: radial-gradient(white, yellow);
+  }
+  
+  .goatDoorOpened {
+    width: 4rem;
+    height: 6rem;
+    background-image: radial-gradient(white, whitesmoke);
+  }
+
+  
