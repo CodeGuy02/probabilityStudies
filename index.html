@@ -7,7 +7,7 @@
     </TITLE>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' href='style.css'>
-
+    <script src='script.js'></script>
 
 </HEAD>
 
@@ -15,14 +15,14 @@
     <h1> Probability Studies </h1>
     <div class='table'>
         <div class='row'>
-            <div class='cell' onmouseover='' onmouseout=''>
-                <p class='cellTitle'> Monty Hall Problem Simulator </p>
-                <p> Help our friendly penguin find the right door among 3 possible choices.
-                    <li>Find the right door to discover treasure!</li>
-                    <li> Open the wrong door and get a goat! Maaah! </li> 
+            <div class='cell' id='montyHall' onmouseover='' onmouseout='' onclick='playMontyHall()'>
+                <p class='cellTitle' class='noselect'> Monty Hall Problem Simulator </p>
+                <p class='noselect'> Help our friendly penguin find the right door among 3 possible choices.
+                    <li class='noselect'>Find the right door to discover treasure!</li>
+                    <li class='noselect'> Open the wrong door and get a goat! Maaah! </li> 
                     
                 </p>
-                <div class='penguinImage'></div>
+                <div class='penguinImage' class='noselect'></div>
             </div>
             
         </div>
