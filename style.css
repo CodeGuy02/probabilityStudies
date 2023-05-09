@@ -5,16 +5,16 @@ body {
 
 .table {
     display: table;
-    width: 70%;
+    width: 80%;
     margin-right: auto;
     margin-left: auto;
-    padding: 5px 5px;
+    padding: 5px 5px; 
     border-spacing: 40px;   /* spacing between rows */
     /* border: 2px solid; */
 }
 
 .mobileTable {
-  width: 100%;
+  width: 95%;
   padding: 0px 0px;
   margin-left: auto;
   margin-right: auto;
@@ -37,7 +37,7 @@ body {
     text-align: left;
     vertical-align: top;
     /* border: 2px solid white; */
-    padding: 20px 20px;
+    padding: 5px 5px;
     /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
     box-shadow: 5px 5px 10px black;
     transition: 100ms;
@@ -57,7 +57,9 @@ body {
 }
 
 .penguinImage {
-    float: right;
+    /* float: middle; */
+    margin-left: auto;
+    margin-right: auto;
     vertical-align: middle;
     content:url('penguin_cheer.gif');
     width: 3rem;
@@ -82,7 +84,7 @@ h1 {
     text-align: center;
     color: white;
     text-shadow: 1px 1px 5px black;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .noselect {
@@ -96,8 +98,8 @@ h1 {
   }
 
   #montyHallplayArea {
-    border: 2px solid black;
-    border-spacing: 10px;    /* border betweeen rows */
+    /* border: 2px solid black; */
+    border-spacing: 5px;    /* border betweeen rows */
   }
 
   .staticRow {
@@ -109,7 +111,15 @@ h1 {
 
   .staticCell {
       display: table-cell;
-      border: 2px solid black;
+      /* border: 2px solid black; */
+  }
+  
+  .doorCell {
+    display: table-cell;
+    border: 2px solid black;
+  }
+  .penguinCell {
+      display: table-cell;
   }
 
   .simplePenguin {
@@ -144,7 +154,7 @@ h1 {
       height: 5rem;
       */
     border-radius: 2px; 
-    background-image: radial-gradient(skyblue,rgb(72, 75, 252),navy);
+    background-image: radial-gradient(skyblue,rgb(72, 144, 252),navy);
     box-shadow: 5px 5px 10px black;
     width: 4rem;
     height: 6rem;
@@ -155,13 +165,38 @@ h1 {
     transform: translateX(-0.3rem);
   }
   
+  .purpleDoor {
+    /*
+    content:url('door_02.png');
+    width: 4rem;
+    height: 5rem;
+    */
+  border-radius: 2px; 
+  background-image: radial-gradient(rgb(153, 135, 235),rgb(72, 75, 252),rgb(65, 0, 150));
+  box-shadow: 5px 5px 10px black;
+  width: 4rem;
+  height: 6rem;
+  transition: 200ms;
+  }
+
+  .purpleDoor:hover {
+  transform: translateX(-0.3rem);
+  }
+
   .selectedDoor {
     width: 4rem;
     height: 6rem;
+    /*
     border: 2px solid whitesmoke;
     border-radius: 2px;
     box-shadow: 5px whitesmoke;
-    background-image: radial-gradient(white, yellow);
+    */
+    /*background-image: radial-gradient(white, darkgray, black);*/
+  }
+
+  .goatDoorRevealed {
+    width: 4rem;
+    height: 6rem;
   }
   
   .goatDoorOpened {
@@ -170,4 +205,9 @@ h1 {
     background-image: radial-gradient(white, whitesmoke);
   }
 
+  .treasureDoorOpened {
+    width: 4rem;
+    height: 6rem;
+    background-color: yellow;
+  }
   
