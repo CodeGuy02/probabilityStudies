@@ -1,14 +1,16 @@
+var wins = 0;
+
 function playMontyHall() {
     montyHall = document.getElementById('montyHall');
     montyHall.innerHTML = 
           "<div class='table' id='montyHallplayArea'> "
         +   "<div class='staticRow'>"
-        +       "<p class='cellTitle'> Select a door and we will show you where one goat is hidden: </p>"
+        +       "<p class='cellTitle' id='cellTitle'> Select a door and we will show you where one goat is hidden: </p>"
         +       "<div class='staticRow'>"
-        +           "<div class='staticCell'> <div class='simplePenguin'> </div> </div>"
-        +           "<div class='staticCell'> <div class='greenDoor' id='doorA' onClick='selectDoor(this)'> </div></div>"
-        +           "<div class='staticCell'> <div class='blueDoor' id='doorB' onClick='selectDoor(this)'> </div></div>"
-        +           "<div class='staticCell'> <div class='greenDoor' id='doorC' onClick='selectDoor(this)'> </div></div>"
+        +           "<div class='penguinCell'> <div class='simplePenguin'> </div> </div>"
+        +           "<div class='doorCell'> <div class='greenDoor' id='doorA' onClick='selectDoor(this)'> </div></div>"
+        +           "<div class='doorCell'> <div class='blueDoor' id='doorB' onClick='selectDoor(this)'> </div></div>"
+        +           "<div class='doorCell'> <div class='purpleDoor' id='doorC' onClick='selectDoor(this)'> </div></div>"
         +       " </div>"
         +       "<div class='staticRow'>"
         +           "<div class='staticCell'> <p class='cellTitle'> Treasures Found: </p></div>"
@@ -32,7 +34,7 @@ function selectDoor(ourDoor) {
     console.log(ourDoor.id);
     /*newDoor = document.getElementById('doorA');*/
     newDoor = ourDoor;
-    newDoor.setAttribute('class', 'selectedDoor');
+    //newDoor.setAttribute('class', 'selectedDoor');
  
     randomDoorValueArray = [];
     HighestValue = 0;
@@ -49,7 +51,13 @@ function selectDoor(ourDoor) {
         if (randomNumber > HighestValue) {
             HighestValue = randomNumber;
             HighestIndex = i;
+        } /*else if 
+        (randomNumber == HighestValue) {
+            i--;
+            randomDoorValueArray.pop();
+            console.log("Value popped!");
         }
+        */
     }
     console.log('highest index is: ' + HighestIndex);
 
@@ -69,17 +77,24 @@ function selectDoor(ourDoor) {
     console.log(randomDoorValueArray);
 
     const firstDoorChosen = ourDoor.id;
-    goatDoorToOpen = 'A';
+    //goatDoorToOpen = 'A';
     if (firstDoorChosen == 'doorA') {
         console.log('door A chosen');
-        if (doorAgoat == true) {
+        console.log(' A:' + doorAgoat + ' B:' + doorBgoat + ' C:' + doorCgoat);
+        
             if (doorBgoat == true) {
                 goatDoorToOpen = 'B';
-            }
+                doorRevealed = document.getElementById('doorB');
+                doorRevealed.setAttribute('class', 'selectedDoor');
+                console.log('reveal B');
+            } else
             if (doorCgoat == true) {
                 goatDoorToOpen = 'C';
+                doorRevealed = document.getElementById('doorC');
+                doorRevealed.setAttribute('class', 'selectedDoor');
+                console.log('reveal C');
             }
-        }
+
     } else
     if (firstDoorChosen == 'doorB') {
         console.log('door B chosen');
@@ -114,6 +129,71 @@ function selectDoor(ourDoor) {
         }
     }
     */
+
+    //selectFinalDoor();
+    cellTitle = document.getElementById('cellTitle');
+    cellTitle.innerHTML = 'Now, select a final door to reveal your prize!';
+
+    //"<div class='doorCell'> <div class='greenDoor' id='doorA' onClick='selectDoor(this)'> </div></div>"
+    
+    updateDoor = document.getElementById('doorA');
+    if (doorAgoat == true) {
+        updateDoor.setAttribute('onClick','winGoat(doorWithHighestValue)');
+    } else { updateDoor.setAttribute('onClick', 'winTreasure(doorWithHighestValue)'); }
+    updateDoor = document.getElementById('doorB');
+    if (doorBgoat == true) {
+        updateDoor.setAttribute('onClick','winGoat(doorWithHighestValue)');
+    } else { updateDoor.setAttribute('onClick', 'winTreasure(doorWithHighestValue)'); }
+    updateDoor = document.getElementById('doorC');
+    if (doorCgoat == true) {
+        updateDoor.setAttribute('onClick','winGoat(doorWithHighestValue)');
+    } else { updateDoor.setAttribute('onClick', 'winTreasure(doorWithHighestValue)'); }
+
+}
+
+function winTreasure(doorWithHighestValue) {
+    let winningDoor = '';
+    if (doorWithHighestValue == 'Door A') {
+        winningDoor = document.getElementById('doorA');
+        winningDoor.setAttribute('class', 'treasureDoorOpened');
+        wins++;
+    } else 
+    if (doorWithHighestValue == 'Door B') {
+        winningDoor = document.getElementById('doorB');
+        winningDoor.setAttribute('class', 'treasureDoorOpened');
+        wins++;
+    } else
+    if (doorWithHighestValue == 'Door C') {
+        winningDoor = document.getElementById('doorC');
+        winningDoor.setAttribute('class', 'treasureDoorOpened');
+        wins++;
+    }
+    console.log('Treasures: ' + wins);
+}
+
+function winGoat(door) {
+    if (doorWithHighestValue != 'Door A') {
+        winningDoor = document.getElementById('doorA');
+        winningDoor.setAttribute('class', 'selectedDoor');
+    } 
+    if (doorWithHighestValue != 'Door B') {
+        winningDoor = document.getElementById('doorB');
+        winningDoor.setAttribute('class', 'selectedDoor');
+    } 
+    if (doorWithHighestValue != 'Door C') {
+        winningDoor = document.getElementById('doorC');
+        winningDoor.setAttribute('class', 'selectedDoor');
+    } 
+}
+
+function selectFinalDoor() {
+    //cellTitle = document.getElementsByClassName('cellTitle');
+    //cellTitle.innerHTML = "<p class='cellTitle'> Now, select a final door </p>";
+    //cellTitle.setAttribute('data-content', 'Hello');
+    //cellTitle.textContent = ' Hello';
+    //cellTitle.setAttribute('color', 'blue');
+    cellTitle = document.getElementById('cellTitle');
+    cellTitle.innerHTML = 'Now, select a final door.';
 }
 
 function detectMobile() {
