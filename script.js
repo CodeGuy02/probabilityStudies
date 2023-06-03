@@ -1,4 +1,5 @@
 var wins = 0;
+var losses = 0;
 
 function playMontyHall() {
     montyHall = document.getElementById('montyHall');
@@ -17,6 +18,9 @@ function playMontyHall() {
         +       "</div>"
         +       "<div class='staticRow'>"
         +           "<div class='staticCell'> <p class='cellTitle' id='goatsFoundText'> Goats Found: </p></div>"
+        +       "</div>"
+        +       "<div class='staticRow'>"
+        +           "<div class='tryAgainButtonArea'> </div>"
         +       "</div>"
         +   "</div>"
         
@@ -172,21 +176,21 @@ function winTreasure(doorWithHighestValue) {
         winningDoor.setAttribute('class', 'treasureDoorOpened');
         wins++;
         treasureFoundText = document.getElementById('treasureFoundText');
-        treasureFoundText.innerText = "<p> Wins: " + wins;
+        treasureFoundText.innerText = "Treasures Found: " + wins;
     } else 
     if (doorWithHighestValue == 'Door B') {
         winningDoor = document.getElementById('doorB');
         winningDoor.setAttribute('class', 'treasureDoorOpened');
         wins++;
         treasureFoundText = document.getElementById('treasureFoundText');
-        treasureFoundText.innerText = "<p> Wins: " + wins;
+        treasureFoundText.innerText = "Treasures Found: " + wins;
     } else
     if (doorWithHighestValue == 'Door C') {
         winningDoor = document.getElementById('doorC');
         winningDoor.setAttribute('class', 'treasureDoorOpened');
         wins++;
         treasureFoundText = document.getElementById('treasureFoundText');
-        treasureFoundText.innerText = "<p> Wins: " + wins;
+        treasureFoundText.innerText = "Treasures Found: " + wins;
     }
     console.log('Treasures: ' + wins);
 }
@@ -204,6 +208,21 @@ function winGoat(door) {
         winningDoor = document.getElementById('doorC');
         winningDoor.setAttribute('class', 'selectedDoor');
     } 
+    
+    losses++;
+    
+    updateDoor = document.getElementById('doorA');
+    updateDoor.setAttribute('onclick', 'doNothing()');
+    updateDoor = document.getElementById('doorB');
+    updateDoor.setAttribute('onclick', 'doNothing()');
+    updateDoor = document.getElementById('doorC');
+    updateDoor.setAttribute('onclick', 'doNothing()');
+    
+    goatsFoundText = document.getElementById('goatsFoundText');
+    goatsFoundText.innerText = "Goats Found: " + losses;
+    
+    tryAgainButtonArea = document.getElementById('tryAgainButtonArea');
+    tryAgainButtonArea.innerHTML = "<button type='button' onclick='playMontyHall'> Try Again </button> ";
 }
 
 function selectFinalDoor() {
