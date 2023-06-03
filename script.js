@@ -20,7 +20,7 @@ function playMontyHall() {
         +           "<div class='staticCell'> <p class='cellTitle' id='goatsFoundText'> Goats Found: </p></div>"
         +       "</div>"
         +       "<div class='staticRow'>"
-        +           "<div class='tryAgainButtonArea'> </div>"
+        +           "<div id='tryAgainButtonArea'> </div>"
         +       "</div>"
         +   "</div>"
         
@@ -198,6 +198,8 @@ function winTreasure(doorWithHighestValue) {
     }
     newCellTitle = document.getElementById('cellTitle');
     newCellTitle.innerText = "Congratulations! You've won some treasure!";
+    tryAgainButtonArea = document.getElementById('tryAgainButtonArea');
+    tryAgainButtonArea.innerHTML = "<button type='button' onclick='playMontyHall()'> Try Again </button> ";
     console.log('Treasures: ' + wins);
 }
 
