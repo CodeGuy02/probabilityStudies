@@ -13,10 +13,10 @@ function playMontyHall() {
         +           "<div class='doorCell'> <div class='purpleDoor' id='doorC' onClick='selectDoor(this)'> </div></div>"
         +       " </div>"
         +       "<div class='staticRow'>"
-        +           "<div class='staticCell'> <p class='cellTitle'> Treasures Found: </p></div>"
+        +           "<div class='staticCell'> <p class='cellTitle' id='treasureFoundText'> Treasures Found: </p></div>"
         +       "</div>"
         +       "<div class='staticRow'>"
-        +           "<div class='staticCell'> <p class='cellTitle'> Goats Found: </p></div>"
+        +           "<div class='staticCell'> <p class='cellTitle' id='goatsFoundText'> Goats Found: </p></div>"
         +       "</div>"
         +   "</div>"
         
@@ -98,25 +98,39 @@ function selectDoor(ourDoor) {
     } else
     if (firstDoorChosen == 'doorB') {
         console.log('door B chosen');
-        if (doorBgoat == true) {
+        console.log(' A:' + doorAgoat + ' B:' + doorBgoat + ' C:' + doorCgoat);
+        
             if (doorAgoat == true) {
                 goatDoorToOpen = 'A';
-            }
+                doorRevealed = document.getElementById('doorA');
+                doorRevealed.setAttribute('class', 'selectedDoor');
+                console.log('reveal A');
+            } else
             if (doorCgoat == true) {
                 goatDoorToOpen = 'C';
+                doorRevealed = document.getElementById('doorC');
+                doorRevealed.setAttribute('class', 'selectedDoor');
+                console.log('reveal C');
             }
-        }
+        
     } else
     if (firstDoorChosen == 'doorC') {
         console.log('door C chosen');
-        if (doorCgoat == true) {
+        console.log(' A:' + doorAgoat + ' B:' + doorBgoat + ' C:' + doorCgoat);
+        
             if (doorAgoat == true) {
                 goatDoorToOpen = 'A';
-            }
+                doorRevealed = document.getElementById('doorA');
+                doorRevealed.setAttribute('class', 'selectedDoor');
+                console.log('reveal A');
+            } else
             if (doorBgoat == true) {
                 goatDoorToOpen = 'B';
+                doorRevealed = document.getElementById('doorB');
+                doorRevealed.setAttribute('class', 'selectedDoor');
+                console.log('reveal B');
             }
-        }
+        
     }
 
     console.log('Goat door to be opened is:' + goatDoorToOpen);
@@ -157,16 +171,22 @@ function winTreasure(doorWithHighestValue) {
         winningDoor = document.getElementById('doorA');
         winningDoor.setAttribute('class', 'treasureDoorOpened');
         wins++;
+        treasureFoundText = document.getElementById('treasureFoundText');
+        treasureFoundText.innerText = "<p> Wins: " + wins;
     } else 
     if (doorWithHighestValue == 'Door B') {
         winningDoor = document.getElementById('doorB');
         winningDoor.setAttribute('class', 'treasureDoorOpened');
         wins++;
+        treasureFoundText = document.getElementById('treasureFoundText');
+        treasureFoundText.innerText = "<p> Wins: " + wins;
     } else
     if (doorWithHighestValue == 'Door C') {
         winningDoor = document.getElementById('doorC');
         winningDoor.setAttribute('class', 'treasureDoorOpened');
         wins++;
+        treasureFoundText = document.getElementById('treasureFoundText');
+        treasureFoundText.innerText = "<p> Wins: " + wins;
     }
     console.log('Treasures: ' + wins);
 }
