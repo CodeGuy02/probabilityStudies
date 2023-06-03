@@ -192,6 +192,8 @@ function winTreasure(doorWithHighestValue) {
         treasureFoundText = document.getElementById('treasureFoundText');
         treasureFoundText.innerText = "Treasures Found: " + wins;
     }
+    newCellTitle = document.getElementById('cellTitle');
+    newCellTitle.innerText = "Congratulations! You've won some treasure!";
     console.log('Treasures: ' + wins);
 }
 
@@ -221,8 +223,10 @@ function winGoat(door) {
     goatsFoundText = document.getElementById('goatsFoundText');
     goatsFoundText.innerText = "Goats Found: " + losses;
     
+    newCellTitle = document.getElementById('cellTitle');
+    newCellTitle.innerText = "You now have a goat!";
     tryAgainButtonArea = document.getElementById('tryAgainButtonArea');
-    tryAgainButtonArea.innerHTML = "<button type='button' onclick='playMontyHall'> Try Again </button> ";
+    tryAgainButtonArea.innerHTML = "<button type='button' onclick='playMontyHall()'> Try Again </button> ";
 }
 
 function selectFinalDoor() {
