@@ -25,7 +25,11 @@ function playMontyHall() {
         +   "</div>"
         
         + "</div>";
-    montyHall.setAttribute('onClick', 'doNothing()');        
+    montyHall.setAttribute('onClick', 'doNothing()'); 
+    treasureFoundText = document.getElementById('treasureFoundText');
+    treasureFoundText.innerText = "Treasures Found: " + wins;
+    goatsFoundText = document.getElementById('goatsFoundText');
+    goatsFoundText.innerText = "Goats Found: " + losses;
 }
 
 function doNothing() {}
